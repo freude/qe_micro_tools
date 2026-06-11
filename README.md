@@ -1,7 +1,9 @@
 # qe_micro_tools
 
+<!-- 
 [![PyPI - Version](https://img.shields.io/pypi/v/qe-micro-tools.svg)](https://pypi.org/project/qe-micro-tools)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/qe-micro-tools.svg)](https://pypi.org/project/qe-micro-tools)
+-->
 
 -----
 
