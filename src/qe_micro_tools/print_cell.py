@@ -1,6 +1,6 @@
 import argparse
-from xml2dict import xml2dict
-from read_xml import get_cell_to_print
+from qe_micro_tools.xml2dict import xml2dict
+from qe_micro_tools.read_xml import get_cell_to_print
 
 
 def main():

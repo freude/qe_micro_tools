@@ -1,6 +1,6 @@
 import numpy as np
-from xml2dict import xml2dict
-from formats_and_units import units, format_schema
+from qe_micro_tools.xml2dict import xml2dict
+from qe_micro_tools.formats_and_units import units, format_schema
 
 
 def get_cell_to_print(data_dict, format='qe'):

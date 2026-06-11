@@ -59,3 +59,13 @@ exclude_lines = [
   "if __name__ == .__main__.:",
   "if TYPE_CHECKING:",
 ]
+
+[project.scripts]
+print_cell = "qe_micro_tools.print_cell:main"
+print_coords = "qe_micro_tools.print_coords:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/qe_micro_tools"]
+
+
+
