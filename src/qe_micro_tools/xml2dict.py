@@ -1,3 +1,4 @@
+from pathlib import Path
 import config
 import xmlschema
 from xml.etree import ElementTree
@@ -5,7 +6,9 @@ from xml.etree import ElementTree
 
 def xml2dict(path):
 
-    cfg = config.Config('config.cfg')
+    base_dir = Path(__file__).resolve().parent
+    config_path = base_dir / "config.cfg"
+    cfg = config.Config(str(config_path))
 
     data = ElementTree.parse(path).getroot()
     qes = data.items()[0][1].split()[1].split('/')[-1].split('.')[0]
