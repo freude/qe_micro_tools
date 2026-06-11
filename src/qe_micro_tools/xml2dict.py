@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 import config
 import xmlschema
@@ -12,7 +13,9 @@ def xml2dict(path):
 
     data = ElementTree.parse(path).getroot()
     qes = data.items()[0][1].split()[1].split('/')[-1].split('.')[0]
-    schema = xmlschema.XMLSchema(cfg[qes])
+    current_dir = os.path.dirname(__file__)
+    file_path = os.path.join(current_dir, cfg[qes])
+    schema = xmlschema.XMLSchema(file_path)
     data_dict = schema.to_dict(data)
 
     return data_dict
