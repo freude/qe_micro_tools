@@ -24,7 +24,11 @@ classifiers = [
   "Intended Audience :: Science/Research",
   "Topic :: Scientific/Engineering :: Physics",
 ]
-dependencies = []
+dependencies = [
+    "config>=0.5.1",
+    "numpy>=2.4.6",
+    "xmlschema>=4.3.1"
+]
 
 [project.urls]
 Documentation = "https://github.com/U.N. Owen/qe-micro-tools#readme"
