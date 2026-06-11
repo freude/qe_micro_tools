@@ -67,5 +67,8 @@ print_coords = "qe_micro_tools.print_coords:main"
 [tool.hatch.build.targets.wheel]
 packages = ["src/qe_micro_tools"]
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
 
 
