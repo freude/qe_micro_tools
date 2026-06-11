@@ -17,7 +17,7 @@ This project offers a collection of utilities for parsing and processing Quantum
 ## Installation
 
 ```console
-pip install qe-micro-tools
+pip install .
 ```
 
 ## License
