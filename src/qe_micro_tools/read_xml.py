@@ -15,7 +15,7 @@ def get_cell_to_print(data_dict, format='qe'):
     cell_to_print = [format_schema[format]['cell']['header']]
 
     for item in cell:
-        cell_to_print.append(np.array2string(item, formatter={'float_kind': lambda x: f"{x: .10f}"})[1:-1])
+        cell_to_print.append(np.array2string(item, formatter={'float_kind': lambda x: f"{x: 17.10f}"})[1:-1])
 
     cell_to_print.append(format_schema[format]['cell']['footer'])
     cell_to_print = "\n".join(cell_to_print)
@@ -29,7 +29,7 @@ def get_coords_to_print(data_dict, format='qe'):
     for item in data_dict['output']['atomic_structure']['atomic_positions']['atom']:
         # coords_to_print.append(item['@name'] + " " + " ".join(str(x * units['bohr']) for x in item['$']))
 
-        data = np.array2string(np.array(item['$']) * units['bohr'], formatter={'float_kind': lambda x: f"{x: .10f}"})[1:-1]
+        data = np.array2string(np.array(item['$']) * units['bohr'], formatter={'float_kind': lambda x: f"{x: 17.10f}"})[1:-1]
         coords_to_print.append(item['@name'] + " " + data)
 
         # cell_to_print.append(np.array2string(item, formatter={'float_kind': lambda x: f"{x:.10f}"})[1:-1])
