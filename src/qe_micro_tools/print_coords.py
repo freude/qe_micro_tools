@@ -28,7 +28,11 @@ class PrintCoords(Microtool):
         file_name = args.file_name
         format = args.format
         data_dict = xml2dict(file_name)
-        return get_coords_to_print(data_dict, format=format)
+        ans = get_coords_to_print(data_dict, format=format)
+        print(ans)
+        return ans
+
+    def entry_point(self):
 
 
 if __name__ == '__main__':

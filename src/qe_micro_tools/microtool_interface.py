@@ -21,7 +21,6 @@ class Microtool(ABC):
 
         args = self.parser.parse_args()
         result = self.implementation(args)
-        print(result)
 
         if args.save:
             file_path = "coords.out"

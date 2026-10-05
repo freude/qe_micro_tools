@@ -63,7 +63,9 @@ class PrintVASP2QE(Microtool):
         write_espresso_in(output, atoms, input_data=input_data, pseudopotentials=pseudopotentials, kpts=(12, 12, 1),
                           koffset=(0, 0, 0))
 
-        return output.getvalue()
+        ans = output.getvalue()
+        print(ans)
+        return ans
 
 
 if __name__ == '__main__':
