@@ -31,16 +31,7 @@ class PrintBoxes(Microtool):
         num_of_boxes = fft_grid[2] // 2
 
         num_points1 = 0
-        text_in = """prefix = '{}'
-outdir = '{}'
-degauss = 0.005
-DeltaE = 0.001
-kresolveddos = .false.
-filpdos = ldos
-tdosinboxes  = .true.
-plotboxes    = .true.
-n_proj_boxes = {}
-""".format(label, outdir, num_of_boxes)
+        text_in = """n_proj_boxes = {}\n""".format(num_of_boxes)
 
         for j in range(num_of_boxes):
             num_points2 = int((j + 1) * fft_grid[2] / num_of_boxes) - 1
