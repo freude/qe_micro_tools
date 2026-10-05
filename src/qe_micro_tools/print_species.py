@@ -1,5 +1,4 @@
-from microtool_interface import Microtool
-from qe_micro_tools.read_xml import get_cell_to_print
+from qe_micro_tools.microtool_interface import Microtool
 from qe_micro_tools.xml2dict import xml2dict
 
 

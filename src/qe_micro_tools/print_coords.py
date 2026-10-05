@@ -1,4 +1,4 @@
-from microtool_interface import Microtool
+from qe_micro_tools.microtool_interface import Microtool
 from qe_micro_tools.read_xml import get_coords_to_print
 from qe_micro_tools.xml2dict import xml2dict
 
@@ -32,7 +32,6 @@ class PrintCoords(Microtool):
         print(ans)
         return ans
 
-    def entry_point(self):
 
 
 if __name__ == '__main__':
