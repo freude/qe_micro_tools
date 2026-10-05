@@ -19,7 +19,10 @@ class PrintNTYP(Microtool):
         return ans
 
 
-if __name__ == '__main__':
-
+def main():
     tool = PrintNTYP()
     tool.entry_point()
+
+
+if __name__ == "__main__":
+    main()

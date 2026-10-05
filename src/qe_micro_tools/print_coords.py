@@ -33,8 +33,10 @@ class PrintCoords(Microtool):
         return ans
 
 
-
-if __name__ == '__main__':
-
+def main():
     tool = PrintCoords()
     tool.entry_point()
+
+
+if __name__ == "__main__":
+    main()

@@ -66,7 +66,11 @@ class PrintVASP2QE(Microtool):
         return ans
 
 
-if __name__ == '__main__':
-
+def main():
     tool = PrintVASP2QE()
     tool.entry_point()
+
+
+if __name__ == "__main__":
+    main()
+

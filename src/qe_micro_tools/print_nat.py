@@ -19,7 +19,11 @@ class PrintNAT(Microtool):
         return ans
 
 
-if __name__ == '__main__':
-
+def main():
     tool = PrintNAT()
     tool.entry_point()
+
+
+if __name__ == "__main__":
+    main()
+

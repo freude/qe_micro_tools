@@ -32,8 +32,11 @@ class PrintCell(Microtool):
         print(ans)
         return ans
 
-
-if __name__ == '__main__':
-
+def main():
     tool = PrintCell()
     tool.entry_point()
+
+if __name__ == "__main__":
+    main()
+
+
