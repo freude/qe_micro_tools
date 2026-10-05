@@ -1,50 +1,37 @@
-import argparse
-from qe_micro_tools.xml2dict import xml2dict
+from microtool_interface import Microtool
 from qe_micro_tools.read_xml import get_coords_to_print
+from qe_micro_tools.xml2dict import xml2dict
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description=("Extract and print atomic coordinates"
-                     "from a Quantum ESPRESSO XML output file."
-                     )
-    )
+class PrintCoords(Microtool):
 
-    parser.add_argument(
-        "file_name",
-        metavar="XML_FILE",
-        help="Path to the Quantum ESPRESSO XML file."
-    )
+    def __init__(self):
 
-    parser.add_argument(
-        "--format",
-        default="qe",
-        choices=["qe", "wan"],
-        help=(
-            "Output format. "
-            "'qe' prints coordinates in Quantum ESPRESSO format; "
-            "'wan' prints them in Wannier90 format. "
-            "(default: %(default)s)"
-        ),
-    )
+        description = ("Extract and print atomic coordinates"
+                       "from a Quantum ESPRESSO XML output file.")
 
-    parser.add_argument("--save", action=argparse.BooleanOptionalAction)
+        super().__init__(description=description)
 
-    args = parser.parse_args()
-    data_dict = xml2dict(args.file_name)
-    result = get_coords_to_print(data_dict, format=args.format)
-    print(result)
+        self.parser.add_argument(
+            "--format",
+            default="qe",
+            choices=["qe", "wan"],
+            help=(
+                "Output format. "
+                "'qe' prints coordinates in Quantum ESPRESSO format; "
+                "'wan' prints them in Wannier90 format. "
+                "(default: %(default)s)"
+            ),
+        )
 
-    if args.save:
-        file_path = "coords.out"
-        try:
-            # Open the file in 'w' (write) mode
-            with open(file_path, 'w') as text_file:
-                text_file.write(result)
-            print(f"Successfully wrote string to {file_path}")
-        except IOError as e:
-            print(f"Error writing to file: {e}")
+    def implementation(self, args):
+        file_name = args.file_name
+        format = args.format
+        data_dict = xml2dict(file_name)
+        return get_coords_to_print(data_dict, format=format)
 
 
 if __name__ == '__main__':
-    main()
+
+    tool = PrintCoords()
+    tool.entry_point()
