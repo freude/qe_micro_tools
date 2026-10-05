@@ -3,7 +3,7 @@ from pathlib import Path
 import config
 import xmlschema
 from xml.etree import ElementTree
-import paramiko
+# import paramiko
 
 
 # hostname = "gadi.nci.org.au"
