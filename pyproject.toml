@@ -71,6 +71,7 @@ print_coords = "qe_micro_tools.print_coords:main"
 print_vasp2qe = "qe_micro_tools.print_vasp2qe:main"
 print_nat = "qe_micro_tools.print_nat:main"
 print_ntyp = "qe_micro_tools.print_ntyp:main"
+print_species = "qe_micro_tools.print_species:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/qe_micro_tools"]
