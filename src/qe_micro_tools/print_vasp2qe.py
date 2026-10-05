@@ -11,14 +11,19 @@ class PrintVASP2QE(Microtool):
 
     def __init__(self):
 
-        description = ("Extract and print unit-cell lattice vectors"
-                       "from a Quantum ESPRESSO XML output file.")
+        description = "Convert VASP input files into QE input files"
 
         super().__init__(description=description)
 
+        self.parser.add_argument(
+            "--label",
+            default="relax",
+            help="Label for input file. "
+        )
+
     def implementation(self, args):
 
-        label = "ab_bilayer_relax"
+        label = args.label
 
         control = {"calculation": 'vc-relax',
                    "outdir": 'tmp_' + label,
@@ -49,18 +54,12 @@ class PrintVASP2QE(Microtool):
 
         dirname = args.file_name
         atoms = read(os.path.join(dirname, "POSCAR"))
-        view(atoms)
 
         pseudopotentials = {}
-
         for atom in atoms:
             pseudopotentials[atom.symbol] = atom.symbol + ".upf"
 
-        print(pseudopotentials)
-        fd = "qe.pwi"
-
         output = io.StringIO()
-
         write_espresso_in(output, atoms, input_data=input_data, pseudopotentials=pseudopotentials, kpts=(12, 12, 1),
                           koffset=(0, 0, 0))
 

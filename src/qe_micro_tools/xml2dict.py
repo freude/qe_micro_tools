@@ -3,6 +3,27 @@ from pathlib import Path
 import config
 import xmlschema
 from xml.etree import ElementTree
+import paramiko
+
+
+hostname = "gadi.nci.org.au"
+username = "mk4729"
+
+
+ssh = paramiko.SSHClient()
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+ssh.connect(hostname, username=username, password="klimenkoM_379")
+sftp = ssh.open_sftp()
+
+# with sftp.open("/scratch/hh39/mk4729/graphene_ab_bilayer_rect/tmp_ab_bilayer_scf/ab_bilayer_scf.xml", "r") as f:
+with sftp.open("/scratch/hh39/mk4729/graphene_ab_bilayer_rect/pp.in", "r") as f:
+    text = f.read()
+
+sftp.get("/scratch/hh39/mk4729/graphene_ab_bilayer_rect/tmp_ab_bilayer_scf/ab_bilayer_scf.xml",
+         "/Users/mkly0001/Monash_work/nci_results/ab_bilayer_scf.xml")
+sftp.close()
+ssh.close()
 
 
 def xml2dict(path):
@@ -23,6 +44,7 @@ def xml2dict(path):
 
 if __name__=='__main__':
 
-    path='/Users/mykhailoklymenko/data-file-schema.xml'
+    path='/Users/mkly0001/Monash_work/nci_results/ab_bilayer_scf.xml'
 
-    print(xml2dict(path))
+    a = xml2dict(path)
+    print(a['output']['basis_set']['fft_grid'].values())
