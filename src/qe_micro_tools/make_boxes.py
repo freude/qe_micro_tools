@@ -21,7 +21,7 @@ class PrintBoxes(Microtool):
         path = args.file_name
         a = xml2dict(path)
         fft_grid = list(a['output']['basis_set']['fft_grid'].values())
-        fft_grid = [36, 60, 270]
+        # fft_grid = [36, 60, 270]
         num_of_boxes = fft_grid[2] // 2
 
         num_points1 = 0
